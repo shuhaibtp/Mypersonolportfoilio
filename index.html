@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalGrowth - Digital Marketing Expert</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #8b5cf6;
+            --background-color: #0f172a;
+            --card-background: rgba(30, 41, 59, 0.9);
+            --text-color: #f8fafc;
+            --muted-text: #94a3b8;
+            --border-color: rgba(148, 163, 184, 0.2);
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .mycostum{
+            color: var(--muted-text);
+        }
+        /* Animations */
+        @keyframes fade-in {
+            to { opacity: 1; }
+        }
+        
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        /* Utility Classes */
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .animate-float { animation: floatUpDown 4s ease-in-out infinite; }
+        .animate-float-delayed { animation: floatUpDown 4s ease-in-out infinite 2s; }
+        .animate-glow { animation: glow-pulse 4s infinite; }
+        .animate-glow-delayed { animation: glow-pulse 4s infinite 1s; }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .btn-free-audit {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-free-audit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Asset/heresection.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .hero-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2;
+        }
+        
+        .hero-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--background-color), transparent 30%, var(--background-color));
+            z-index: 3;
+        }
+        
+        /* Hero Gradient Circles */
+        .glow-circle-1 {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 24rem;
+            height: 24rem;
+            background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 3;
+            animation: glow-pulse 4s infinite;
+        }
+        
+        .glow-circle-2 {
+            position: absolute;
+            bottom: 25%;
+            right: 25%;
+            width: 20rem;
+            height: 20rem;
+            background-color: rgba(139, 92, 246, 0.2);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 3;
+            animation: glow-pulse 4s infinite 1s;
+        }
+        
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 0;
+        }
+        
+        .badge-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            animation: fade-in 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .main-headline {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fade-in-up 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .main-headline {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .main-headline {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .main-headline {
+                font-size: 4rem;
+            }
+        }
+        
+        .sub-headline {
+            font-size: 1.125rem;
+            color: var(--muted-text);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            animation: fade-in-up 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+        
+        /* Hero Buttons */
+        .btn-primary-lg {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary-lg:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+            color: white;
+        }
+        
+        .btn-outline-lg {
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.125rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: transparent;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-lg:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            background-color: rgba(59, 130, 246, 0.05);
+            color: var(--text-color);
+        }
+        
+        /* Profile & Rings Section */
+        .profile-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fade-in 0.8s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+        /* The Three Concentric Rings */
+        .custom-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1.5px solid;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .ring-inner {
+            width: 340px;
+            height: 340px;
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .ring-middle {
+            width: 380px;
+            height: 380px;
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+        
+        .ring-outer {
+            width: 420px;
+            height: 420px;
+            border-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Profile Image Setup */
+        .profile-image-box {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(59, 130, 246, 0.3);
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+        
+        .profile-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transform: scale(1.15);
+        }
+        
+        .profile-glow {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent 70%);
+            filter: blur(50px);
+            z-index: 1;
+        }
+        
+        /* Floating Badges */
+        .f-badge {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+        
+        .badge-roas {
+            top: 20%;
+            right: 0;
+        }
+        
+        .badge-clients {
+            bottom: 20%;
+            left: 0;
+        }
+        
+        /* Stats Section */
+        .stats-row {
+            margin-top: 4rem;
+            animation: fade-in-up 0.8s ease-out 1s forwards;
+            opacity: 0;
+        }
+        
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        @media (max-width: 991px) {
+            .custom-ring { display: none; }
+            .profile-container { height: 350px; }
+            .profile-image-box { width: 250px; height: 250px; }
+            .badge-roas { right: 10px; }
+            .badge-clients { left: 10px; }
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--background-color);
+        }
+        
+        @media (min-width: 992px) {
+            .services-section {
+                padding: 8rem 0;
+            }
+        }
+        
+        .services-bg-1 {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 16rem;
+            height: 16rem;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .services-bg-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20rem;
+            height: 20rem;
+            background-color: rgba(139, 92, 246, 0.05);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        /* Section Header */
+        .section-badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            border-radius: 50px;
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: var(--primary-color);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--muted-text);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background-color: var(--card-background);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            height: 100%;
+            transition: all 0.5s ease;
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .icon-container {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            padding: 2px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .icon-container {
+            transform: scale(1.1);
+        }
+        
+        .icon-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 0.7rem;
+            background-color: var(--card-background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+        
+        .service-card:hover .card-title {
+            color: var(--primary-color);
+        }
+        
+        .card-description {
+            color: var(--muted-text);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+        
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            flex-shrink: 0;
+        }
+        
+        /* Gradient Classes for Icons */
+        .gradient-primary { background: linear-gradient(to bottom right, var(--primary-color), rgba(59, 130, 246, 0.5)); }
+        .gradient-secondary { background: linear-gradient(to bottom right, var(--secondary-color), rgba(139, 92, 246, 0.5)); }
+        .gradient-primary-to-secondary { background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color)); }
+        .gradient-secondary-to-primary { background: linear-gradient(to bottom right, var(--secondary-color), var(--primary-color)); }
+        .gradient-primary-light { background: linear-gradient(to bottom right, var(--primary-color), rgba(59, 130, 246, 0.7)); }
+        .gradient-secondary-light { background: linear-gradient(to bottom right, var(--secondary-color), rgba(139, 92, 246, 0.7)); }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: floatUpDown 2s infinite;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .scroll-indicator {
+                display: block;
+            }
+        }
+        
+        .scroll-circle {
+            width: 1.5rem;
+            height: 2.5rem;
+            border: 2px solid rgba(148, 163, 184, 0.5);
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            padding-top: 0.5rem;
+        }
+        
+        .scroll-dot {
+            width: 0.5rem;
+            height: 0.75rem;
+            background-color: var(--primary-color);
+            border-radius: 0.25rem;
+            animation: bounce 1.5s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+        
+        /* Experience Section */
+        .experience-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(30, 41, 59, 0.3);
+        }
+        
+        @media (min-width: 992px) {
+            .experience-section {
+                padding: 8rem 0;
+            }
+        }
+        
+        .experience-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: radial-gradient(circle at 1px 1px, var(--primary-color) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        .experience-badge {
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .highlight-card {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .highlight-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .achievement-card {
+            position: relative;
+            background-color: var(--card-background);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2rem;
+        }
+        
+        .achievement-glow {
+            position: absolute;
+            inset: -1rem;
+            background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 2rem;
+            filter: blur(30px);
+            z-index: -1;
+        }
+        
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--muted-text);
+        }
+        
+        .achievement-number {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--background-color);
+        }
+        
+        @media (min-width: 992px) {
+            .portfolio-section {
+                padding: 8rem 0;
+            }
+        }
+        
+        .portfolio-bg-1 {
+            position: absolute;
+            top: 25%;
+            right: 0;
+            width: 24rem;
+            height: 24rem;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .portfolio-bg-2 {
+            position: absolute;
+            bottom: 25%;
+            left: 0;
+            width: 20rem;
+            height: 20rem;
+            background-color: rgba(139, 92, 246, 0.05);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .portfolio-card {
+            background-color: var(--card-background);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.5s ease;
+            height: 100%;
+        }
+        
+        .portfolio-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-icon-container {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
+            padding: 2px;
+        }
+        
+        .portfolio-icon-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 0.7rem;
+            background-color: var(--card-background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .portfolio-icon {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            margin: 1rem 0;
+        }
+        
+        .result-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        @media (min-width: 992px) {
+            .result-value {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .result-label {
+            font-size: 0.875rem;
+            color: var(--muted-text);
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(148, 163, 184, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--muted-text);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-tag:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(30, 41, 59, 0.3);
+        }
+        
+        @media (min-width: 992px) {
+            .contact-section {
+                padding: 8rem 0;
+            }
+        }
+        
+        .contact-gradient-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--background-color), transparent, var(--background-color));
+        }
+        
+        .contact-glow-1 {
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 24rem;
+            height: 24rem;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .contact-glow-2 {
+            position: absolute;
+            top: 0;
+            right: 25%;
+            width: 20rem;
+            height: 20rem;
+            background-color: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .contact-badge {
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--muted-text);
+        }
+        
+        .contact-icon {
+            font-size: 1.25rem;
+        }
+        
+        .social-link {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            background-color: rgba(148, 163, 184, 0.2);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-text);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: scale(1.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .social-link.linkedin:hover {
+            color: #0A66C2;
+        }
+        
+        .social-link.whatsapp:hover {
+            color: #25D366;
+        }
+        
+        .social-link.email:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-form-card {
+            background-color: var(--card-background);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            color: var(--muted-text);
+        }
+        
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shuhaib Digital</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list text-white fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-free-audit" onclick="scrollToContact()">Get Free Audit</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Background Image -->
+        <div class="hero-bg"></div>
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-gradient-overlay"></div>
+        
+        <!-- Gradient Overlays -->
+        <div class="glow-circle-1 animate-glow"></div>
+        <div class="glow-circle-2 animate-glow-delayed"></div>
+        
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <!-- Left Column - Content -->
+                <div class="col-lg-6 order-lg-1 order-2 text-center text-lg-start mt-5 mt-lg-0">
+                    <!-- Badge -->
+                    <div class="badge-main">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        <span>Freelance Digital Marketing Expert</span>
+                    </div>
+                    
+                    <!-- Main Headline -->
+                    <h1 class="main-headline">
+                        Driving <span class="gradient-text">Scalable Growth</span> through Data-Backed Digital Marketing
+                    </h1>
+                    
+                    <!-- Sub-headline -->
+                    <p class="sub-headline">
+                        Expert in SEO, PPC, and AI-driven strategies to turn clicks into customers.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <button class="btn btn-primary-lg" onclick="scrollToContact()">
+                            Get a Free Audit <i class="bi bi-arrow-right ms-2"></i>
+                        </button>
+                        <button class="btn btn-outline-lg" onclick="scrollToServices()">
+                            Explore Services
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Profile Photo -->
+                <div class="col-lg-6 order-lg-2 order-1">
+                    <div class="profile-container">
+                        <div class="custom-ring ring-inner"></div>
+                        <div class="custom-ring ring-middle"></div>
+                        <div class="custom-ring ring-outer"></div>
+                        
+                        <div class="profile-glow"></div>
+                        
+                        <div class="profile-image-box">
+                            <img src="/Asset/my pic.png" alt="Digital Marketing Expert">
+                        </div>
+                        
+                        <!-- Floating badges -->
+                        <div class="f-badge badge-roas animate-float">
+                            <i class="bi bi-graph-up-arrow text-secondary me-2"></i> 300% ROAS
+                        </div>
+                        <div class="f-badge badge-clients animate-float-delayed">
+                            <i class="bi bi-bullseye text-primary me-2"></i> 50+ Clients
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="row stats-row">
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="stat-value">300%</div>
+                        <p class="mycostum small mb-0">Avg. ROAS Increase</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="stat-value">50+</div>
+                        <p class="mycostum small mb-0">Global Clients</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="stat-value">8+ Years</div>
+                        <p class="mycostum small mb-0">Industry Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-circle">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <!-- Background Elements -->
+        <div class="services-bg-1"></div>
+        <div class="services-bg-2"></div>
+        
+        <div class="container position-relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <span class="section-badge">Services</span>
+                <h2 class="section-title">
+                    Comprehensive <span class="gradient-text">Digital Marketing</span> Solutions
+                </h2>
+                <p class="section-description">
+                    End-to-end marketing services designed to accelerate your business growth and maximize ROI.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="row g-4 g-lg-5">
+                <!-- Performance Marketing Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card" style="animation-delay: 0s;">
+                        <div class="icon-container gradient-primary">
+                            <div class="icon-inner">
+                                <i class="bi bi-graph-up-arrow service-icon"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Performance Marketing</h3>
+                        <p class="card-description">
+                            Specialized in Google Ads and Meta Ads (Facebook/Instagram). Focus on high ROAS, conversion tracking, and retargeting campaigns that deliver measurable results.
+                        </p>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Google Ads Management</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Meta Ads Optimization</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Conversion Tracking</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Retargeting Strategies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Search Engine Optimization Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card" style="animation-delay: 0.1s;">
+                        <div class="icon-container gradient-secondary">
+                            <div class="icon-inner">
+                                <i class="bi bi-search service-icon"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Search Engine Optimization</h3>
+                        <p class="card-description">
+                            Full-stack SEO including technical audits, on-page optimization, and high-authority link building to dominate SERPs and drive organic traffic.
+                        </p>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Technical SEO Audits</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>On-page Optimization</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Link Building</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>SERP Domination</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- eCommerce Growth Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card" style="animation-delay: 0.2s;">
+                        <div class="icon-container gradient-primary-to-secondary">
+                            <div class="icon-inner">
+                                <i class="bi bi-cart-check service-icon"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">eCommerce Growth</h3>
+                        <p class="card-description">
+                            Specialized marketing funnels for online stores to reduce cart abandonment and increase Customer Lifetime Value (LTV) through data-driven strategies.
+                        </p>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Funnel Optimization</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Cart Recovery</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>LTV Maximization</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Product Feed Ads</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Digital Marketing 360 Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card" style="animation-delay: 0.3s;">
+                        <div class="icon-container gradient-secondary-to-primary">
+                            <div class="icon-inner">
+                                <i class="bi bi-globe service-icon"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Digital Marketing 360</h3>
+                        <p class="card-description">
+                            A holistic approach covering the entire customer journey, from brand awareness to conversion and retention for comprehensive growth.
+                        </p>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Brand Strategy</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Content Marketing</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Email Automation</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Customer Retention</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- AI-Powered Marketing Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card" style="animation-delay: 0.4s;">
+                        <div class="icon-container gradient-primary-light">
+                            <div class="icon-inner">
+                                <i class="bi bi-cpu service-icon"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">AI-Powered Marketing</h3>
+                        <p class="card-description">
+                            Leveraging cutting-edge AI tools for predictive analytics, automated content workflows, and data-driven decision-making to stay ahead of competition.
+                        </p>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Predictive Analytics</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Automated Workflows</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>AI Content Creation</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Smart Bidding</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Analytics & Reporting Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card" style="animation-delay: 0.5s;">
+                        <div class="icon-container gradient-secondary-light">
+                            <div class="icon-inner">
+                                <i class="bi bi-bar-chart-line service-icon"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Analytics & Reporting</h3>
+                        <p class="card-description">
+                            Comprehensive data analysis and transparent reporting to track ROI, identify opportunities, and make informed marketing decisions.
+                        </p>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Custom Dashboards</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>ROI Tracking</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>A/B Testing</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-dot"></span>
+                                <span>Insights Reports</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <!-- Background Pattern -->
+        <div class="experience-bg-pattern"></div>
+        
+        <div class="container relative z-10">
+            <div class="row align-items-center">
+                <!-- Left Column - Content -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="section-badge experience-badge">Experience</span>
+                    <h2 class="section-title">
+                        Trusted by
+                        <span class="gradient-text">Global Clients</span>
+                    </h2>
+                    <p class="section-description text-start">
+                       With over 5 years of experience in digital marketing, I’ve helped businesses of all sizes achieve remarkable growth through data-driven strategies and transparent, results-oriented campaigns. I’ve worked in-house with companies in Dubai and Saudi Arabia, as well as with clients across Kerala, and have successfully trained 100+ students through practical, industry-focused digital marketing programs.
+                    </p>
+
+                    <!-- Highlights -->
+                    <div class="mt-5">
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="highlight-card">
+                                <i class="bi bi-globe highlight-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold text-white mb-1">Global Reach</h3>
+                                <p class=" small mb-0 mycostum">
+                                    Working with clients across 15+ countries, delivering localized strategies with global expertise.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="highlight-card">
+                                <i class="bi bi-graph-up highlight-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold text-white mb-1">ROI Focused</h3>
+                                <p class="small mb-0 mycostum">
+                                    Every campaign is designed with clear KPIs and measurable outcomes to ensure maximum return on investment.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-3">
+                            <div class="highlight-card">
+                                <i class="bi bi-shield-check highlight-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold text-white mb-1">Transparent Reporting</h3>
+                                <p class="mycostum small mb-0">
+                                    Weekly reports and real-time dashboards keep you informed about campaign performance at all times.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Achievements -->
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="achievement-glow"></div>
+                        <div class="achievement-card">
+                            <h3 class="h4 fw-bold mb-4 d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-secondary"></i>
+                                Key Achievements
+                            </h3>
+                            <ul class="achievement-list">
+                                <li class="achievement-item">
+                                    <span class="achievement-number">1</span>
+                                    <span>Managed 1 cr+ in annual ad spend across platforms</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <span class="achievement-number">2</span>
+                                    <span>Achieved 300%+ average ROAS for eCommerce clients</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <span class="achievement-number">3</span>
+                                    <span>Ranked difrent keywords on first page of Google</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <span class="achievement-number">4</span>
+                                    <span>Reduced customer acquisition cost by 40% on average</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <span class="achievement-number">5</span>
+                                    <span>Generated 2 Cr + in attributable revenue for clients</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <span class="achievement-number">6</span>
+                                    <span>Certified Google Ads and Meta Blueprint Professional</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <!-- Background Elements -->
+        <div class="portfolio-bg-1"></div>
+        <div class="portfolio-bg-2"></div>
+        
+        <div class="container position-relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <span class="section-badge">Portfolio</span>
+                <h2 class="section-title">
+                    Client
+                    <span class="gradient-text">Success Stories</span>
+                </h2>
+                <p class="section-description">
+                    Real results from real campaigns. See how data-driven strategies drive measurable growth.
+                </p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="row g-4 g-lg-5">
+                <!-- Fashion eCommerce Brand -->
+                <div class="col-md-6">
+                    <div class="portfolio-card">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="portfolio-icon-container">
+                                    <div class="portfolio-icon-inner">
+                                        <i class="bi bi-bag-fill portfolio-icon"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4 fw-bold text-white">Fashion eCommerce Brand</h3>
+                                    <span class="text-muted small">eCommerce</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                        </div>
+                        
+                        <p class="text-muted mb-4">
+                            Scaled Meta Ads campaigns from $50K to $200K monthly spend while maintaining profitability.
+                        </p>
+                        
+                        <!-- Results -->
+                        <div class="results-grid">
+                            <div class="text-center">
+                                <div class="result-value">420%</div>
+                                <div class="result-label">ROAS</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="result-value">+180%</div>
+                                <div class="result-label">Revenue Growth</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <span class="portfolio-tag">Meta Ads</span>
+                            <span class="portfolio-tag">Google Shopping</span>
+                            <span class="portfolio-tag">Email Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- B2B SaaS Platform -->
+                <div class="col-md-6">
+                    <div class="portfolio-card">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="portfolio-icon-container">
+                                    <div class="portfolio-icon-inner">
+                                        <i class="bi bi-building portfolio-icon"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4 fw-bold text-white">B2B SaaS Platform</h3>
+                                    <span class="text-muted small">SaaS</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                        </div>
+                        
+                        <p class="text-muted mb-4">
+                            Implemented full-funnel marketing strategy resulting in significant MRR growth.
+                        </p>
+                        
+                        <!-- Results -->
+                        <div class="results-grid">
+                            <div class="text-center">
+                                <div class="result-value">+250%</div>
+                                <div class="result-label">Lead Generation</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="result-value">-45%</div>
+                                <div class="result-label">CAC Reduction</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <span class="portfolio-tag">LinkedIn Ads</span>
+                            <span class="portfolio-tag">SEO</span>
+                            <span class="portfolio-tag">Content Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Health & Wellness Brand -->
+                <div class="col-md-6">
+                    <div class="portfolio-card">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="portfolio-icon-container">
+                                    <div class="portfolio-icon-inner">
+                                        <i class="bi bi-bullseye portfolio-icon"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4 fw-bold text-white">Health & Wellness Brand</h3>
+                                    <span class="text-muted small">DTC</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                        </div>
+                        
+                        <p class="text-muted mb-4">
+                            Complete SEO overhaul and CRO optimization leading to record-breaking sales.
+                        </p>
+                        
+                        <!-- Results -->
+                        <div class="results-grid">
+                            <div class="text-center">
+                                <div class="result-value">+320%</div>
+                                <div class="result-label">Organic Traffic</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="result-value">+65%</div>
+                                <div class="result-label">Conversion Rate</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <span class="portfolio-tag">SEO</span>
+                            <span class="portfolio-tag">CRO</span>
+                            <span class="portfolio-tag">Google Ads</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Financial Services Firm -->
+                <div class="col-md-6">
+                    <div class="portfolio-card">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="portfolio-icon-container">
+                                    <div class="portfolio-icon-inner">
+                                        <i class="bi bi-graph-up-arrow portfolio-icon"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4 fw-bold text-white">Financial Services Firm</h3>
+                                    <span class="text-muted small">Finance</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                        </div>
+                        
+                        <p class="text-muted mb-4">
+                            Developed compliant advertising strategies across Google and LinkedIn for regulated industry.
+                        </p>
+                        
+                        <!-- Results -->
+                        <div class="results-grid">
+                            <div class="text-center">
+                                <div class="result-value">+180%</div>
+                                <div class="result-label">Qualified Leads</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="result-value">-52%</div>
+                                <div class="result-label">Cost Per Lead</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <span class="portfolio-tag">Google Ads</span>
+                            <span class="portfolio-tag">LinkedIn Ads</span>
+                            <span class="portfolio-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <!-- Background Elements -->
+        <div class="contact-gradient-bg"></div>
+        <div class="contact-glow-1"></div>
+        <div class="contact-glow-2"></div>
+        
+        <div class="container position-relative z-10">
+            <div class="row align-items-center">
+                <!-- Left Column - Info -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="section-badge contact-badge">Get In Touch</span>
+                    <h2 class="section-title">
+                        Ready to
+                        <span class="gradient-text">Grow Your Business</span>
+                        ?
+                    </h2>
+                    <p class="section-description text-start">
+                        Let's discuss how we can scale your digital presence and drive measurable results. 
+                        Get a free audit of your current marketing strategy.
+                    </p>
+
+                    <!-- Contact Info -->
+                    <div class="mb-4">
+                        <div class="contact-info-item mb-3">
+                            <i class="bi bi-envelope-fill contact-icon text-primary"></i>
+                            <span>shuhaibfreelancer@gmail.com</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="bi bi-geo-alt-fill contact-icon text-secondary"></i>
+                            <span>Available Worldwide (Remote)</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+<div class="d-flex gap-3">
+    <a href="https://www.linkedin.com/in/shuhaib-izaque-2940869a/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="https://wa.me/9961689097" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="mailto:shuhaibfreelancer@gmail.com" class="social-link email" aria-label="Email">
+        <i class="bi bi-envelope-fill"></i>
+    </a>
+    <a href="https://www.instagram.com/shuhaib_digi_freelancer" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+    </a>
+</div>
+                </div>
+
+                <!-- Right Column - Form -->
+                <div class="col-lg-6">
+                    <div class="contact-form-card">
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="row mb-3">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                                    <div class="invalid-feedback">Please enter your name.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="company" class="form-label">Company / Website</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Your company or website URL">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project and goals..." rows="5" required></textarea>
+                                <div class="invalid-feedback">Please enter your message.</div>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span id="btnText">Get Free Audit</span>
+                                <i class="bi bi-send-fill" id="btnIcon"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 DigitalGrowth. All rights reserved. | Designed for <a href="https://pages.github.com/" target="_blank">Shuhaib Digital</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scroll functions
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function scrollToServices() {
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function scrollToExperience() {
+            const experienceSection = document.getElementById('experience');
+            if (experienceSection) {
+                experienceSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function scrollToPortfolio() {
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                portfolioSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes to elements
+            const animatedElements = document.querySelectorAll('.badge-main, .main-headline, .sub-headline, .stats-row, .service-card');
+            
+            // Force reflow to restart animations
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+            
+            // Add hover effect for service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Add hover effect for portfolio cards
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+            portfolioCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    if (!contactForm.checkValidity()) {
+                        e.stopPropagation();
+                        contactForm.classList.add('was-validated');
+                        return;
+                    }
+                    
+                    // Disable button and show loading state
+                    submitBtn.disabled = true;
+                    btnText.textContent = 'Sending...';
+                    btnIcon.className = 'bi bi-hourglass-split';
+                    
+                    // Simulate form submission (replace with actual API call)
+                    setTimeout(() => {
+                        // Show success message
+                        alert('Message sent successfully! Thanks for reaching out. I\'ll get back to you within 24 hours.');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        contactForm.classList.remove('was-validated');
+                        
+                        // Reset button
+                        submitBtn.disabled = false;
+                        btnText.textContent = 'Get Free Audit';
+                        btnIcon.className = 'bi bi-send-fill';
+                    }, 1500);
+                });
+            }
+            
+            // Navbar link click handlers
+            document.querySelectorAll('.nav-link[href="#services"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToServices();
+                });
+            });
+            
+            document.querySelectorAll('.nav-link[href="#experience"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToExperience();
+                });
+            });
+            
+            document.querySelectorAll('.nav-link[href="#portfolio"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToPortfolio();
+                });
+            });
+            
+            document.querySelectorAll('.nav-link[href="#contact"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToContact();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
